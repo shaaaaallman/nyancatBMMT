@@ -1,8 +1,13 @@
+'''
+##argparse code##
+
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("banner", action="store_true", help="display the flippin sweet ascii art")
 #parser.add_argument("argName", action="store_true"IFOPTIONAL, help="help text for flag")
 args = parser.parse_args()
+'''
+
 def banner():
     print("####################################################################################################")
     print("####################################################################################################")
@@ -54,7 +59,39 @@ def banner():
     print("##                                                        |___/                                   ##")
     print("####################################################################################################")
     print("####################################################################################################")
+    mainMenu()
 
+def mainMenu():
+    while 1:
+        try:
+            selection = str(input(">")).upper()
+            
+            if selection == "BANNER":
+                banner()
+                break
+            elif selection == "HELP":
+                helpPlz()
+                break
+            elif selection == "QUIT" or selection == "EXIT":
+                break
+            else:
+                print("Invalid argument \"" + selection + "\" Type HELP for usage options")
+                mainMenu()
+        except ValueError:
+            print("Invalid argument. Type HELP for usage options")
+    exit
+    
+def helpPlz():
+    print("SAMPLETEXTSAMPLETEXTSAMPLETEXT")
+    mainMenu()
+
+
+#Start the program with the banner and enter the mainMenu loop
+banner()
+
+''' 
+ArgsParseCode 
 ## DEFINE LOGIC FOR FLAGS BELOW THEIR RESPECTIVE METHOD DECLARATIONS
 if args.banner:
     banner()
+'''
