@@ -61,6 +61,7 @@ def banner():
     print("####################################################################################################")
     mainMenu()
 
+#The Main Function. Add this fuction to the end of each Command Method to call back the main menu.
 def mainMenu():
     while 1:
         try:
