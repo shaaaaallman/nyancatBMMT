@@ -75,11 +75,6 @@ def mainMenu():
             print("Invalid argument. Type HELP for usage options")
     exit
 
-<<<<<<< HEAD
-def helpPlz():
-    # Prolly put actual help text here with context once we have a few commands written :P
-    print("SAMPLETEXTSAMPLETEXTSAMPLETEXT")
-=======
 #Display the help menu
 def helpPlz():
     print("")
@@ -89,19 +84,16 @@ def helpPlz():
     print("BANNER: Display the flippin sweet ascii art")
     print("EXIT: Exit NyanCat")
     print("HELP: display the help menu")
->>>>>>> a9d6b875015b1fbfd40e37a4fe3dff6a9ffe35d4
     mainMenu()
 
 
 #Start the program with the banner and enter the mainMenu loop
 banner()
 
-<<<<<<< HEAD
 '''
 ArgsParseCode
 =======
 
-'''
 ##argparse code##
 
 import argparse
@@ -110,7 +102,6 @@ parser.add_argument("banner", action="store_true", help="display the flippin swe
 #parser.add_argument("argName", action="store_true"IFOPTIONAL, help="help text for flag")
 args = parser.parse_args()
 
->>>>>>> a9d6b875015b1fbfd40e37a4fe3dff6a9ffe35d4
 ## DEFINE LOGIC FOR FLAGS BELOW THEIR RESPECTIVE METHOD DECLARATIONS
 if args.banner:
     banner()
