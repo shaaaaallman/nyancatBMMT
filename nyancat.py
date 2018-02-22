@@ -66,14 +66,14 @@ def mainMenu():
     while 1:
         try:
             selection = str(input(">")).upper()
-            
-            if selection == "BANNER":
+
+            if selection == "BANNER" or selection == "B" or selection == "SHOW ME THAT SICK ART AGAIN":
                 banner()
                 break
-            elif selection == "HELP":
+            elif selection == "HELP" or selection == "H":
                 helpPlz()
                 break
-            elif selection == "QUIT" or selection == "EXIT":
+            elif selection == "QUIT" or selection == "EXIT" or selection == "Q":
                 break
             else:
                 print("Invalid argument \"" + selection + "\" Type HELP for usage options")
@@ -81,8 +81,9 @@ def mainMenu():
         except ValueError:
             print("Invalid argument. Type HELP for usage options")
     exit
-    
+
 def helpPlz():
+    # Prolly put actual help text here with context once we have a few commands written :P
     print("SAMPLETEXTSAMPLETEXTSAMPLETEXT")
     mainMenu()
 
@@ -90,8 +91,8 @@ def helpPlz():
 #Start the program with the banner and enter the mainMenu loop
 banner()
 
-''' 
-ArgsParseCode 
+'''
+ArgsParseCode
 ## DEFINE LOGIC FOR FLAGS BELOW THEIR RESPECTIVE METHOD DECLARATIONS
 if args.banner:
     banner()
