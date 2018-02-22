@@ -1,13 +1,6 @@
-'''
-##argparse code##
+#A tool by Shallman and SuperSaiyanNappa, the spiciest meme lords ;)
 
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("banner", action="store_true", help="display the flippin sweet ascii art")
-#parser.add_argument("argName", action="store_true"IFOPTIONAL, help="help text for flag")
-args = parser.parse_args()
-'''
-
+#Displays the flippin sweet ascii art
 def banner():
     print("####################################################################################################")
     print("####################################################################################################")
@@ -81,17 +74,32 @@ def mainMenu():
         except ValueError:
             print("Invalid argument. Type HELP for usage options")
     exit
-    
+
+#Display the help menu
 def helpPlz():
-    print("SAMPLETEXTSAMPLETEXTSAMPLETEXT")
+    print("")
+    print("Commands List")
+    print("=============")
+    print("")
+    print("BANNER: Display the flippin sweet ascii art")
+    print("EXIT: Exit NyanCat")
+    print("HELP: display the help menu")
     mainMenu()
 
 
 #Start the program with the banner and enter the mainMenu loop
 banner()
 
-''' 
-ArgsParseCode 
+
+'''
+##argparse code##
+
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("banner", action="store_true", help="display the flippin sweet ascii art")
+#parser.add_argument("argName", action="store_true"IFOPTIONAL, help="help text for flag")
+args = parser.parse_args()
+
 ## DEFINE LOGIC FOR FLAGS BELOW THEIR RESPECTIVE METHOD DECLARATIONS
 if args.banner:
     banner()
