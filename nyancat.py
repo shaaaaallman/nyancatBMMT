@@ -1,5 +1,10 @@
 #A tool by Shallman and SuperSaiyanNappa, the spiciest meme lords ;)
 
+# importz
+import subprocess
+import os
+import shlex
+
 #Displays the flippin sweet ascii art
 def banner():
     print("####################################################################################################")
@@ -55,11 +60,21 @@ def banner():
     print("####################################################################################################")
     mainMenu()
 
+#Raw input for netcat
+def raw(paramz):
+    #parparz = str(paramz)
+    #print(parparz[:-2])
+    pop = subprocess.Popen("nc.exe", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    print(pop.communicate(paramz[:-2]))
+    #FNULL = open(os.devnull, 'w')
+    #subprocess.call(paramz, nc.exe)
+    mainMenu()
+
 #The Main Function. Add this fuction to the end of each Command Method to call back the main menu.
 def mainMenu():
     while 1:
         try:
-            selection = str(input(">")).upper()
+            selection = str(input(">"))
 
             if selection == "BANNER" or selection == "B" or selection == "SHOW ME THAT SICK ART AGAIN":
                 banner()
@@ -68,6 +83,11 @@ def mainMenu():
                 helpPlz()
                 break
             elif selection == "QUIT" or selection == "EXIT" or selection == "Q":
+                break
+            elif selection.startswith('RAW'):
+                strParams = selection[4:]
+                #print("Raw netcat parameters: " + strParams) #JMS full string after raw is getting saved as strParams
+                raw(strParams)
                 break
             else:
                 print("Invalid argument \"" + selection + "\" Type HELP for usage options")
@@ -90,6 +110,7 @@ def helpPlz():
 
 #Start the program with the banner and enter the mainMenu loop
 banner()
+
 
 '''
 ArgsParseCode
