@@ -60,6 +60,11 @@ def banner():
     print("####################################################################################################")
     mainMenu()
 
+'''
+def getOs():
+    myOs = str(platform.system())
+'''
+
 #Raw input for netcat
 def raw(paramz):
     #parparz = str(paramz)
@@ -68,6 +73,20 @@ def raw(paramz):
     print(pop.communicate(paramz[:-2]))
     #FNULL = open(os.devnull, 'w')
     #subprocess.call(paramz, nc.exe)
+    mainMenu()
+
+#CONNECT to machine at supplied ip:port
+def connect(paramz):
+    pop = subprocess.Popen("nc.exe", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    print(pop.communicate("-nv " + paramz[:-2]))
+    #literally just append -nv ahead of params it takes
+    mainMenu()
+
+#LISTEN - establishes a listener on specified port
+def listen(paramz):
+    pop = subprocess.Popen("nc.exe", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    print(pop.communicate("-nlvp " + paramz))
+    #literally just append -nlvp ahead of params it takes
     mainMenu()
 
 #The Main Function. Add this fuction to the end of each Command Method to call back the main menu.
@@ -85,9 +104,16 @@ def mainMenu():
             elif selection == "QUIT" or selection == "EXIT" or selection == "Q":
                 break
             elif selection.startswith('RAW'):
-                strParams = selection[4:]
-                #print("Raw netcat parameters: " + strParams) #JMS full string after raw is getting saved as strParams
+                strParams = selection[3:]
                 raw(strParams)
+                break
+            elif selection.startswith('CONNECT'):
+                strParams = selection[7:]
+                connect(strParams)
+                break
+            elif selection.startswith('LISTEN'):
+                strParams = selection[6:]
+                listen(strParams)
                 break
             else:
                 print("Invalid argument \"" + selection + "\" Type HELP for usage options")
