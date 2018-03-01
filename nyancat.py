@@ -85,7 +85,7 @@ def connect(paramz):
 #LISTEN - establishes a listener on specified port
 def listen(paramz):
     pop = subprocess.Popen("nc.exe", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    print(pop.communicate("-nlvp " + paramz))
+    #print(pop.communicate("-nlvp " + paramz[:-2]))
     #literally just append -nlvp ahead of params it takes
     mainMenu()
 
