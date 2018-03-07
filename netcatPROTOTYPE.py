@@ -26,6 +26,8 @@ def comms(client):
         buffer += '\n'
 
         client.send(buffer.encode())
+    
+    client.close()
 
 host = input("IP:")
 port = int(input("PORT:"))
